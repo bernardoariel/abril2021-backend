@@ -1,0 +1,16 @@
+# Impedir que se pueda ver el listado de contenidos de un directorio
+
+Options All -Indexes
+
+<FilesMatch "\.(ttf|otf|eot|woff|woff2)$">
+  <IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+  </IfModule>
+</FilesMatch>
+
+
+# Url Amigables
+
+RewriteEngine On
+
+RewriteRule ^([-a-zA-Z0-9/]+)$ index.php?ruta=$1
